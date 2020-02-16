@@ -1,0 +1,120 @@
+<section id="patientlog" class="secondary-color text-center scrollto clearfix">
+    <div class="row clearfix">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <h4><i class="icon ion-ios-person"></i>Patient Data</h4>
+                    <form [formGroup]="patientlogForm">
+                        <div>
+                            <small>The following questionnaire is for providing you a better service. Please provide
+                                true and correct infromation and help us to keep your life safe.</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="height"
+                                placeholder="Height (cm)" name="height" required id="height">
+                            <!-- <div *ngIf="height.invalid && (height.dirty || height.touched)" class="alert alert-danger">
+                                <div *ngIf="height.errors.required">
+                                    Height is required.
+                                </div>
+                                <div *ngIf="height.errors.minlength">
+                                    Height must be either 2 or 3 characters long.
+                                </div>
+                            </div> -->
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="weight"
+                                placeholder="Weight (Kg)" name="weight" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input type="date" class="form-control input-lg" formControlName="DOB" name="DOB" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control input-lg">Gender</label>
+                            <div>
+                                <label class="radio"><input type="radio" formControlName="gender" value="male"
+                                        name="gender" required> Male
+                                </label>
+                                <label class="radio"><input type="radio" formControlName="gender" value="female"
+                                        name="gender" required> Female
+                                </label>
+                            </div>
+                        </div>
+                        <div> 
+                            <p style="color: red">{{invalidFormText}}</p>
+                        </div>
+
+                        <!-- <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are you Smoking</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are you Taking Regular Excercises?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are you Taking Alcohol?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="habits" class="form-control input-lg">Any other related habits?</label>
+                            <textarea rows="12" cols="25" class="form-control input-lg" id="comment" formControlName="habits" placeholder="Your Habits" name="habits"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are you Suffering with high blood pressure?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are you Suffering with Diabetes?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Are there any previous Heart Attacks?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label id="gender" class="form-control input-lg">Do you have Arrythmia?</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="Yes" > Yes
+                                <input type="radio" formControlName="gender" value="No"> No
+                            </div>
+                        </div> -->
+                        <!-- <div class="form-group">
+                            <label id="medical_history" class="form-control input-lg">Any other Important Facts Related to Your Medical History</label>
+                            <textarea rows="12" cols="25" class="form-control input-lg" id="medical_history" formControlName="comment" placeholder="Medical History" name="medical_history"></textarea>
+                        </div>
+                        <label id="medical_history" class="form-control input-lg">Carer Info</label>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="ID-carer" placeholder="Carer ID in THE HEALER (Primery Carer)" name="idCarer">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="Mobile-carer" placeholder="Moble No of Your Primery Carer" name="MobCarer">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="Email-Carer" placeholder="Email of Your Primery Carer" name="EmCarer">
+                        </div> -->
+                        <button type="submit" class="btn btn-primary" (click)="onBackButtonClick()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

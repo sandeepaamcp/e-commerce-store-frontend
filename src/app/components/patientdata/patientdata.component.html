@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- <title>Heroic Features - Start Bootstrap Template</title> -->
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/heroic-features.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Patient's Portal</h1>
+      <p class="lead">See Your Health Conditions at a Glance</p>
+      <a (click)="viewPatientProfile()" class="btn btn-success btn-lg" style="color: white">Your Profile</a>
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100 Device">
+          <img class="card-img-top"  alt="">
+          <div class="card-body">
+            <h4 class="card-title">My IoT Devices</h4>
+            <p class="card-text">Add your Health Monitoring Device into 'THE HEALER' Syetem</p>
+          </div>
+          <div class="card-footer" style="color: white">
+            <a class="btn btn-primary btn-block" (click)="addNewIoTDevice()">GO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100 Mode">
+          <img class="card-img-top"  id="Mode" alt="">
+          <div class="card-body">
+            <h4 class="card-title">My Carers</h4>
+            <p class="card-text">Add or set your carers to whom your emergency notifications go.</p>
+          </div>
+          <div class="card-footer" style="color: white">
+            <a class="btn btn-primary btn-block" (click)="setCarers()">GO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100 Real">
+          <img class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">My Current State</h4>
+            <p class="card-text">Observe Your Current Medical Data</p>
+          </div>
+          <div class="card-footer" style="color: white">
+            <a class="btn btn-primary btn-block" (click)="getRealtimeData()">GO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100 History">
+          <img src="" class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">My Medical History</h4>
+            <p class="card-text">Observe Your Medical History</p>
+          </div>
+          <div class="card-footer" style="color: white">
+            <a (click)="getMedicalHistory()" class="btn btn-primary btn-block">GO</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  
+</body>
+
+</html>

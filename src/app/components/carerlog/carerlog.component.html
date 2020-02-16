@@ -1,0 +1,28 @@
+<section id="carerlog" class="secondary-color text-center scrollto clearfix">
+        <div class="rosw clearfix">
+            <div class="container">
+                <div class="panel">
+                    <div class="panel-body">
+                        <h4><i class="icon ion-ios-person"></i>Select the Patient</h4>
+                        <form [formGroup]="carerlogForm" (ngSubmit)="carerlog(carerlogForm.value)">
+                                <div class="input-group mb-3" style="text-align: left">
+                                    <div class="list-group mt-4 mb-4 w-100">
+                                        <a href="#" class="list-group-item list-group-item-action">Cras justo odio</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                                        <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a>
+                                    </div>
+                                </div>
+                        <!-- <button type="submit" [class.disabled]=!carerlog.valid class="btn btn-primary" (click)="onBackButtonClick()">View</button> -->
+                        <!-- <div>
+                        <small>Already have an account <span><a href="#">Log in</a></span></small>
+                        </div> -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+

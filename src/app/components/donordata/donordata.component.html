@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- <title>Heroic Features - Start Bootstrap Template</title> -->
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/heroic-features.css" rel="stylesheet"> -->
+
+</head>
+
+<body>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Donor's Portal</h1>
+      <p class="lead">Observe your Statistics</p>
+      <a class="btn btn btn-lg" style="background: brown; color:white" (click)="deleteDonor()">Unsubscribe me as a
+        Donor</a>
+    </header>
+
+    <!-- Page Features -->
+    <div class="row text-center">
+
+      <div class="col-lg-6 col-md-6">
+        <div class="card">
+          <div class="card text-white bg-warning">
+            <div class="card-header" style="font-size: 1.8em">Transmitted Data</div>
+            <div class="card-body">
+              <h5 class="card-title">The Total Transmitted Data Through Your Mobile Relay</h5>
+              <p class="card-text" style="font-size: 2.5em; font-weight: bold">{{donor.transmittedDataBytes/1024}} kB
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6 col-md-6">
+        <div class="card">
+          <div class="card text-white bg-warning">
+            <div class="card-header" style="font-size: 1.8em">Earned Points</div>
+            <div class="card-body">
+              <h5 class="card-title">The Total Earned Points Through the Data Transmission</h5>
+              <p class="card-text" style="font-size: 2.5em; font-weight: bold">{{donor.points}} Points</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card text-white mt-4 mb-4" style="background:cadetblue">
+            <div class="card-header">Your Rating</div>
+            <div class="card-body">
+              <div style="text-align:center">
+                <star-rating value="{{donor.trustScore/100*5}}" checkedcolor="gold" uncheckedcolor="gray" size="24px"
+                  readonly="false" (rate)="onRate($event)"></star-rating>
+                <p class="card-text" style="font-size: 2.5em; font-weight: bold; color: wheat">{{donor.trustScore}}%</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card text-white mt-4 mb-4" style="background:lightgray">
+            <div class="card-header" style="color: black">Add Mobile</div>
+            <p style="color: black">After you add new mobile, simply copy the mobile ID to the mobile app during registration.</p>
+            <div class="card-body">
+              <div style="text-align:center">
+                <a class="btn btn btn-lg" style="background: brown; color:white" (click)="addMobile()">
+                  Add</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-12 col-md-12">
+        <div class="card">
+          <div class="card text-white mt-4 mb-4" style="background:lightgray">
+            <div class="card-header" style="color: black">Registered Mobiles</div>
+            <div class="card-body">
+              <div style="text-align:center">
+                <ul>
+                  <li *ngFor="let mobile of mobiles">
+                    <div style="margin-top: 20px">
+                      <p class="card-text" style="color: black">Mobile ID: {{mobile.phoneId}}</p>
+                      <p class="card-text" style="color: black">Advertising ID: {{mobile.advertisingId}}</p>
+                      <button style="background: brown" class="btn btn-primary btn-block mt-3"
+                        (click)="removeMobile(mobile)">
+                        Remove Mobile</button>
+                    </div>
+
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+</body>
+
+</html>

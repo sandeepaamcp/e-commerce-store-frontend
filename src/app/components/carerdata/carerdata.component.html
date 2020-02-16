@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Heroic Features - Start Bootstrap Template</title>
+  
+</head>
+
+<body>
+
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <!-- Jumbotron Header -->
+    <header class="jumbotron my-4">
+      <h1 class="display-3">Carer's Portal</h1>
+      <p class="lead">Watch Your Patient</p>
+      <p class="lead">Your carer ID: {{carer.carerId}}</p>
+      <p>To view patient's stats and get notifications, ask your patient to add this carer ID.</p>
+      <a class="btn btn-success btn-lg" (click)="deleteCarer()" style="background: brown; color: white">Unsubscribe me
+        as a Carer</a>
+    </header>
+
+    <div class="card w-100 mb-4" style="background: cornflowerblue" *ngIf="hasCarerRelationship">
+      <div class="card-body">
+        <h5 class="card-title">Current Patient</h5>
+        <div id="pdata">
+          <p class="card-text" style="color: white;">Patient ID: {{selectedPatient.patientId}}</p>
+          <p class="card-text" style="color: white;">Patient Name: {{selectedPatient.patientName}}</p>
+          <p class="card-text" style="color: white;">Your Relationship: {{selectedPatient.relationship}}</p>
+          <p class="card-text" style="color: white;">Patient Email: {{selectedPatient.patientEmail}}</p>
+          <p class="card-text" style="color: white;">Patient Contact No: {{selectedPatient.patientPhoneNumber}}</p>
+          <!-- <p class="card-text" style="color: cyan; font-weight: bold">Patient Risk Level:</p> -->
+        </div>
+        <a (click)="removePatientRelationship(selectedPatient.patientId)" class="btn btn-warning">Remove Patient</a>
+      </div>
+    </div>
+    <div class="card w-100 mb-4" style="background: whitesmoke" *ngIf="hasCarerRelationship">
+      <div class="card-body" *ngIf="carerRelationships.length>0">
+        <!-- <h5 class="card-title">Switch Patient</h5> -->
+        <div id="pdata">
+          
+            <!-- <a (click)="onBackButtonClick3()" class="btn btn-block" style="color: black; background:brown">GO</a>
+            <a (click)="onBackButtonClick3()" class="btn btn-block" style="color: black; background:brown">GO</a> -->
+
+
+            <h4 style="color: black"><i class="icon ion-ios-person" style="color: brown"></i> Select the Patient</h4>
+            <ul>
+              <li *ngFor="let relationship of carerRelationships">
+                  <div style="margin-top: 20px">
+                      <!-- <p class="card-text" (click)="selectPatientRelationship(relationship)">{{relationship.patientName}}</p> -->
+                      <div class="list-group mt-4 mb-4 w-100">
+                        <a (click)="selectPatientRelationship(relationship)" style= "color: black; text-align: center" class="list-group-item list-group-item-action">{{relationship.patientName}}</a>
+                        <!-- <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in</a>
+                        <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+                        <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+                        <a href="#" class="list-group-item list-group-item-action disabled">Vestibulum at eros</a> -->
+                    </div>
+                      <!-- <button style="background: brown" class="btn btn-primary btn-block mt-3" 
+                      (click)="selectPatientRelationship(relationship)">
+                      Remove Device</button> -->
+                  </div>
+
+              </li>
+          </ul>
+
+        </div>
+        <!-- <a (click)="viewPatientProfile()" class="btn btn-warning">View Patient Profile</a> -->
+      </div>
+    </div>
+    <!-- Page Features -->
+    <div class="row text-center" *ngIf="hasCarerRelationship">
+
+      <!-- <div class="col-lg-3 col-md-6 mb-4">
+        <div class="card h-100 Device">
+          <img class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Notifications</h4>
+            <p class="card-text">View the patient's notifications</p>
+          </div>
+          <div class="card-footer">
+            <a (click)="onBackButtonClick()" class="btn btn-primary btn-block">GO</a>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 Mode">
+          <img class="card-img-top" id="Mode" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Get the Location</h4>
+            <p class="card-text">Detect the Patient's Current Location</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary btn-block">GO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 Real">
+          <img class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Current State of the Patient</h4>
+            <p class="card-text">Observe the Current Medical Data</p>
+          </div>
+          <div class="card-footer">
+            <a (click)="onBackButtonClick3()" class="btn btn-primary btn-block" style="color: white">GO</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card h-100 History">
+          <img src="" class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Analyse patient</h4>
+            <p class="card-text">Observe the Medical History and notifications</p>
+          </div>
+          <div class="card-footer">
+            <a (click)="getMedicalHistory()" class="btn btn-primary btn-block" style="color: white">GO</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+
+</body>
+
+</html>

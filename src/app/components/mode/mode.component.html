@@ -1,0 +1,27 @@
+<section id="mode" class="secondary-color text-center  scrollto clearfix">
+    <div class="row clearfix">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <h4>Choose Your Primary Mode</h4>
+                    <form [formGroup]="modeForm">
+                        <!-- <div class="form-group">
+                            <input type="text" class="form-control input-lg" formControlName="email" placeholder="Email" name="email">
+                             <span class="ion-md-mail form-control-icon"></span> -->
+                        <!-- </div> -->
+                        <!-- <div class="form-group">
+                            <input type="password" class="form-control input-lg" formControlName="password" placeholder="Password" name="password">
+                            <span class="ion-key form-control-icon"></span> -->
+                        <!-- </div>  -->
+                        <button type="submit" [class.disabled]=!modeForm.valid class="btn btn-danger btn-lg btn-block" id="modebtn" (click)="patientPortalClick()">{{patientDirect}}</button>
+                        <button type="submit" [class.disabled]=!modeForm.valid class="btn btn-success btn-lg btn-block" (click)="carerPortalClick()">{{carerDirect}}</button>
+                        <button type="submit" [class.disabled]=!modeForm.valid class="btn btn-primary btn-lg btn-block" (click)="donorPortalClick()">{{donorDirect}}</button>
+                    <div>
+                    <p style="color: red">{{errorString}}</p>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

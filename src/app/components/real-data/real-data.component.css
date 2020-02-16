@@ -1,0 +1,42 @@
+body {
+    padding-top: 120px;
+  }
+
+.jumbotron {
+    background-image: url('src/assets/images/back12.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Device {
+    background-image: url('src/assets/images/sensor.png');
+}
+
+.Mode {
+    background-image: url('src/assets/images/mode_2.jpg');
+    background-position: right;
+}
+
+.Real {
+    background-image: url('src/assets/images/real.jpg');
+    background-position: right;
+}
+
+.History {
+    background-image: url('src/assets/images/history.jpg');
+    background-position: left;
+}
+#pdata {
+    color: aliceblue;
+    padding-left: 20px;
+    padding-bottom: 10px;
+}
+
+#lineChart{
+    padding: 10px auto;
+}
+
+#line_chart {
+    width: 100%;
+    height: 50%;
+}

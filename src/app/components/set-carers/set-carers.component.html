@@ -1,0 +1,66 @@
+<section id="addDevice" class="secondary-color text-center scrollto clearfix">
+    <div class="rosw clearfix">
+        <div class="container">
+            <div class="panel">
+                <div class="panel-body">
+                    <h4><i class="icon ion-md-cog"></i>Add New Carers</h4>
+                    <form [formGroup]="addCarerForm" (ngSubmit)="addNewCarerRelation()">
+                        <div class="form-group">
+                            <!-- <label id="target_patient" class="form-control input-lg">Details of the New Device</label> -->
+                            <input type="text" class="form-control input-lg " formControlName="carerId"
+                                placeholder="Carer ID" name="carerId" required>
+                            <input type="text" class="form-control input-lg " formControlName="relationship"
+                                placeholder="Relationship with the carer" name="relationship" required>
+
+                            <!-- <input type="text" class="form-control input-lg form-names" formControlName="lname" placeholder="Last Name" name="lname"> -->
+                        </div>
+                        <!-- <div class="form-group">
+                            <input type="text" class="Enckey" formControlName="DeviceID" placeholder="Key" name="Enckey">
+                        </div>
+                    
+                        <div class="form-group">
+                            <label id="relation" class="form-control input-lg">Device Type</label>
+                            <div>
+                                <input type="radio" formControlName="gender" value="OPS" > Optical Monitor
+                                <input type="radio" formControlName="gender" value="ECG"> ECG
+                            </div>
+                        </div> -->
+                        <div>
+                            <label style="color: brown">{{formInvalidStr}}</label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Add</button>
+                        <!-- <div>
+                    <small>Already have an account <span><a href="#">Log in</a></span></small>
+                    </div> -->
+                    </form>
+                </div>
+
+            </div>
+            <div class="panel-body card" style="margin-top: 10px">
+                <div class="card-header">
+                    Registered Carers
+                </div>
+
+                <div class="card-body">
+                    <ul>
+                        <li *ngFor="let carer of carerList">
+                            <div style="margin-top: 20px">
+                                <p class="card-text">Carer Name: {{carer.carerName}}</p>
+                                <p class="card-text">Carer ID: {{carer.carerId}}</p>
+                                <p class="card-text">Relationship: {{carer.relationship}}</p>
+                                <p class="card-text">Email: {{carer.carerEmail}}</p>
+                                <button style="background: brown" class="btn btn-primary btn-block mt-3"
+                                    (click)="removeCarer(carer)">
+                                    Remove Carer</button>
+                            </div>
+
+                        </li>
+                    </ul>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
