@@ -49,11 +49,15 @@ export class HeaderComponent implements OnInit {
   }
 
   private goToHome(){
+      this._router.navigate(["/Home"]);
+  }
+
+  private goToFavourites(){
     if(this.isLoggedIn){
-      this._router.navigate(['/mode']);
+      this._router.navigate(['/fav-mobiles']);
     }
     else{
-      this._router.navigate(["/Home"]);
+      this._router.navigate(["/login"]);
     }
   }
 

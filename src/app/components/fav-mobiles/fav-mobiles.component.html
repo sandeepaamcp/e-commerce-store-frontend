@@ -1,1 +1,31 @@
-<p>fav-mobiles works!</p>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+
+
+<div class="container" style="padding-top: 100px">
+    <!-- THE SPECS OF THE PRODUCTS-->
+    <div><h2>My Favourite Mobiles</h2></div>
+    <div class="row" style="padding-top: 20px">
+        
+        <div class="col-md-3 col-sm-6" *ngFor="let mobile of mobilesList">
+            <div class="product-grid2">
+                <div class="product-image2">
+                    <a href="#">
+                        <img class="pic-1"
+                            src="{{mobile.mobileSpecification.imageUrl}}">
+                        </a>
+                    <ul class="social">
+                        <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
+                        <li><a (click)="removeFavMobile(mobile.id)" data-tip="Remove Device"><i class="fa fa-trash"></i></a></li>
+                        <!-- <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> -->
+                    </ul>
+                    <!-- <a class="add-to-cart" (click)="addFavMobile(mobile)">Add to Favourites</a> -->
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a>{{mobile.mobileSpecification.mobile.modelName}}</a></h3>
+                    <span class="price">Rs. {{mobile.mobileSpecification.price}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

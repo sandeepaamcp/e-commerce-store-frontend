@@ -54,10 +54,10 @@
                         </a>
                     <ul class="social">
                         <li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
-                        <li><a href="#" data-tip="Add to Favourites"><i class="fa fa-shopping-bag"></i></a></li>
+                        <li><a (click)="addFavMobile(mobile)" data-tip="Add to Favourites"><i class="fa fa-shopping-bag"></i></a></li>
                         <!-- <li><a href="#" data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li> -->
                     </ul>
-                    <a class="add-to-cart" href="">Add to Favourites</a>
+                    <a class="add-to-cart" (click)="addFavMobile(mobile)">Add to Favourites</a>
                 </div>
                 <div class="product-content">
                     <h3 class="title"><a href="#">{{mobile.mobile.modelName}}</a></h3>

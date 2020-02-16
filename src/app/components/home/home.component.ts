@@ -2,6 +2,8 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 import { MobileSearchService } from 'src/app/services/mobile-search.service';
+import { environment } from 'src/environments/environment';
+import { FavMobilesService } from 'src/app/services/fav-mobiles.service';
 
 @Component({
   selector: 'app-home',
@@ -28,9 +30,13 @@ export class HomeComponent implements OnInit {
 
   keyword: any = null;
 
+  userDetails: any = null;
+
+  isLoggedIn: any = false;
+
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService,
-    private mobileSearchService: MobileSearchService) { }
+    private mobileSearchService: MobileSearchService, private favMobileService:FavMobilesService) { }
 
 
   ngOnInit() {
@@ -43,7 +49,12 @@ export class HomeComponent implements OnInit {
       this.mobilesList = list;
 
       console.log(this.mobilesList);
-    })
+    });
+
+    this.userDetails = this.storage.get(environment.USER);
+      if (this.userDetails != null) {
+        this.isLoggedIn = true;
+      }
   }
 
   toggleFilterSearch() {
@@ -90,6 +101,19 @@ export class HomeComponent implements OnInit {
           });
       }
 
+    }
+  }
+
+  private addFavMobile(mobile){
+    if(!this.isLoggedIn){
+      this._router.navigate(['/login']);
+    }
+    else{
+      console.log(this.userDetails.userId, mobile.specificationId);
+      this.favMobileService.addNewFavMobile(this.userDetails.userId, mobile.specificationId).then(res=>{
+        console.log(res);
+        console.log("save success");
+      })
     }
   }
 }
