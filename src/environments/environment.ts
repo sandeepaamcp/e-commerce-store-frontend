@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  CONNECTION_URL: "http://localhost:8085",
+  CONNECTION_URL: "http://10.50.20.205:8085",
   AUTH_KEY: "jwt-token",
   USER:"user-details",
   PATIENT:"patient-details",

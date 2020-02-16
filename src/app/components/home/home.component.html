@@ -3,7 +3,7 @@
 
 
 <div class="container" style="padding-top: 100px">
-    <div id="element1">
+    <div id="element1" *ngIf="!showFilters">
         <input style="width: 400px" class="form-control" type="text" placeholder="Type keywords" aria-label="Search">
     </div>
 
@@ -11,25 +11,25 @@
         <div class="dropdown" style="display:inline-block; padding-left: 20px;">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Manufacturer
+                {{manufacturerStr}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">SAMSUNG</a>
-                <a class="dropdown-item" href="#">HUAWEI</a>
-                <a class="dropdown-item" href="#">APPLE</a>
+                <a class="dropdown-item" 
+                *ngFor="let manufacturer of mobileManufacturerList"
+                (click)="setManufacturer(manufacturer)">{{manufacturer}}</a>
             </div>
         </div>
         <div id="element1" style="padding-left: 20px">
-            <input style="width: 120px" class="form-control" type="number" placeholder="price (Rs.)" aria-label="price">
+            <input style="width: 120px" class="form-control" type="number" placeholder="price (Rs.)" aria-label="price" [(ngModel)]="price">
         </div>
         <div class="dropdown" style="display:inline-block; padding-left: 20px;">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Criteria
+                {{variationStr}}
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" href="#">Greater than</a>
-                <a class="dropdown-item" href="#">Less than</a>
+                <a class="dropdown-item" *ngFor="let variation of variationList"
+                 (click)="setVariation(variation)">{{variation}}</a>
             </div>
         </div>
     </div>
@@ -38,8 +38,10 @@
             <input type="checkbox" class="custom-control-input" id="defaultUnchecked" (input)="toggleFilterSearch()">
             <label class="custom-control-label" for="defaultUnchecked">Filter</label>
         </div>
-        <button type="button" class="btn btn-primary" style="width: 120px">Search</button>
+        <button type="button" class="btn btn-primary" style="width: 120px" (click)="getMobilesSearchList()">Search</button>
     </div>
+
+    <div style="padding-left:40px;" *ngIf="!isFilledAllFields && showFilters"><p style="color:gray">Please fill out all the fields</p></div >
 
     <!-- THE SPECS OF THE PRODUCTS-->
     <div class="row" style="padding-top: 20px">

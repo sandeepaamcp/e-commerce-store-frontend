@@ -16,9 +16,21 @@ export class MobileSearchService {
 
   private userData: AuthenticationCredentials;
 
+
+
   public getMobileManufacturers(){
     return this.http.get(`${this.apiURL}/mobile_search/get_all_manufacturers`).toPromise();
   }
+
+
+  getSearchListFromFilters(selectedManufacturer: any, price: any, selectedVariation: any) {
+    var query = "/mobile_search/get_mobiles_by_manufactuer_and_price?manufacturer="+
+    selectedManufacturer+"&price="+price+"&variation="+selectedVariation;
+    return this.http.get(`${this.apiURL}`+query).toPromise();
+  }
+
+
+
   public authenticate(credentials: AuthenticationCredentials) {
     this.userData = credentials;
     return this.http.post(`${this.apiURL}/authenticate`, credentials).pipe(

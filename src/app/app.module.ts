@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RatingModule } from 'ng-starrating';
 import { AgmCoreModule } from '@agm/core';
-
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeroComponent } from './components/hero/hero.component';
@@ -83,6 +83,7 @@ import { MobileSpecComponent } from './components/mobile-spec/mobile-spec.compon
     HttpClientModule,
     ChartsModule,
     StorageServiceModule,
+    FormsModule,
   ],
   providers: [ConfigService, 
     // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

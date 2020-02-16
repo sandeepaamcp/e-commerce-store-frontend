@@ -13,18 +13,19 @@ import { MobileSearchService } from 'src/app/services/mobile-search.service';
 export class HomeComponent implements OnInit {
 
   showFilters: boolean = false;
-  private patientDirect: string = "RETRIEVING DATA";
-  private patient;
 
-  private carerDirect: string = "RETRIEVING DATA";
-  private carer;
+  mobileManufacturerList: any = [];
 
-  private donorDirect: string = "RETRIEVING DATA";
-  private donor;
+  selectedManufacturer: any = null;
+  manufacturerStr = "Manufacturer";
+  isFilledAllFields = false;
 
-  private userDetails;
+  selectedVariation: any = null;
+  variationStr = "Criteria";
 
-  private errorString = "";
+  variationList = ["GREATER_THAN", "LESS_THAN"];
+
+  price: any = null;
 
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService,
@@ -34,10 +35,9 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.mobileSearchService.getMobileManufacturers().then(val => {
       console.log(val);
-      });
+      this.mobileManufacturerList = val;
+    });
   }
-
-
 
   toggleFilterSearch() {
     if (this.showFilters == false) {
@@ -46,5 +46,29 @@ export class HomeComponent implements OnInit {
     else {
       this.showFilters = false;
     }
+  }
+
+  setManufacturer(manufacturer) {
+    console.log(manufacturer);
+    this.selectedManufacturer = manufacturer;
+    this.manufacturerStr = manufacturer;
+  }
+
+  setVariation(variation) {
+    console.log(variation);
+    this.selectedVariation = variation;
+    this.variationStr = variation;
+  }
+
+  getMobilesSearchList() {
+    if (this.selectedManufacturer != null && this.price != null && this.selectedVariation != null) {
+      this.isFilledAllFields = true;
+      this.mobileSearchService
+        .getSearchListFromFilters(this.selectedManufacturer, this.price, this.selectedVariation)
+        .then(mobilesList => {
+          console.log(mobilesList);
+        });
+    }
+
   }
 }
