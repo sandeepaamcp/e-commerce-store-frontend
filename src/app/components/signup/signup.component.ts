@@ -19,12 +19,10 @@ export class SignupComponent implements OnInit {
   user: User = new User();
 
   profileForm = new FormGroup({
-    firstName: new FormControl(''),
-    lastName: new FormControl(''),
+    userName: new FormControl(''),
     userEmail: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
-    phoneNumber: new FormControl(''),
   });
 
   private errorMessage = "";
@@ -51,13 +49,10 @@ export class SignupComponent implements OnInit {
       this.storage.clear();
       this.user.email = this.profileForm.value.userEmail;
       this.user.password = this.profileForm.value.password;
-      this.user.phoneNumber = this.profileForm.value.phoneNumber;
-      this.user.userName = this.profileForm.value.firstName + " " + this.profileForm.value.lastName;
+      this.user.username = this.profileForm.value.userName;
 
       this.userBackendService.register(this.user).then((res) => {
         console.log(res);
-        // this.messageService.changeMessage(res);
-        // this.storage.set(environment.USER, res);
         this._router.navigate(['/login']);
       }
       ).catch((error: any) => {

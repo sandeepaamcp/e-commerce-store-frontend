@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SetCarersComponent } from './set-carers.component';
+import { FavMobilesComponent } from './fav-mobiles.component';
 
-describe('SetCarersComponent', () => {
-  let component: SetCarersComponent;
-  let fixture: ComponentFixture<SetCarersComponent>;
+describe('FavMobilesComponent', () => {
+  let component: FavMobilesComponent;
+  let fixture: ComponentFixture<FavMobilesComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SetCarersComponent ]
+      declarations: [ FavMobilesComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SetCarersComponent);
+    fixture = TestBed.createComponent(FavMobilesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

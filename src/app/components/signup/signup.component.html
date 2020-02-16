@@ -6,15 +6,12 @@
                     <h4><i class="icon ion-ios-person"></i>Sign Up</h4>
                     <form [formGroup]="profileForm" (ngSubmit)="onSignupButtonClick()">
                         <div class="form-group">
-                            <input type="text" class="form-control input-lg form-names" formControlName="firstName"
-                                placeholder="First Name" name="fname" required>
-                            <input type="text" class="form-control input-lg form-names" formControlName="lastName"
-                                placeholder="Last Name" name="lname" required>
-                            <!-- <span class="ion-md-person form-control-icon" style="padding-bottom: 15px"></span> -->
+                            <input type="text" class="form-control input-lg" formControlName="userName"
+                                placeholder="User Name" name="fname" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control input-lg" formControlName="userEmail" placeholder="Email"
-                                name="email" required>
+                            <input type="text" class="form-control input-lg" formControlName="userEmail"
+                                placeholder="Email" name="email" required>
                             <!-- <span class="ion-md-mail form-control-icon"></span> -->
                         </div>
                         <div class="form-group">
@@ -25,33 +22,12 @@
                         <div class="form-group">
                             <input type="password" class="form-control input-lg" formControlName="confirmPassword"
                                 placeholder="Confirm Password" name="confim_password" required>
-                            <!-- <span class="ion-key form-control-icon"></span> -->
-                        </div>
-
-                        <!-- <div class="form-group">
-                            <label id="gender" class="form-control input-lg">Gender</label>
-                            <div>
-                                <input type="radio" formControlName="gender" value="male"> Male
-                                <input type="radio" formControlName="gender" value="female"> Female
-                            </div>
-                        </div> -->
-                        <!-- <div class="form-group">
-                            <label id="gender" class="form-control input-lg">Birthday</label>
-                            <input type="text" class="form-control input-lg form-names" formControlName="month"
-                                placeholder="Month" name="bmonth">
-                            <input type="text" class="form-control input-lg form-names" formControlName="year"
-                                placeholder="Year" name="byear">
-                        </div> -->
-
-                        <div class="form-group">
-                            <input type="text" class="form-control input-lg" formControlName="phoneNumber"
-                                placeholder="Mobile No.(Format eg: +94xxxxxxxxx)" name="mobile" required>
                         </div>
 
                         <button type="submit" class="btn btn-primary">Submit</button>
                         <div>
-                            <small>Already have an account <span style="color: blueviolet"><a
-                                        (click)="goToLogin()">Log in</a></span></small>
+                            <small>Already have an account <span style="color: blueviolet"><a (click)="goToLogin()">Log
+                                        in</a></span></small>
                         </div>
                     </form>
                     <p style="color:red;">

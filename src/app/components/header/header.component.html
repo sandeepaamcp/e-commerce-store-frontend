@@ -11,6 +11,10 @@
           <a class="nav-link" (click)="goToHome()" [class.active]="activetab === 'home'">Home <i
               class="icon ion-ios-arrow-forward icon-mobile"></i></a>
         </li>
+        <li class="nav-item nav-custom-link">
+          <a class="nav-link" (click)="goToFavourites()" [class.active]="activetab === 'home'">My Favourite Mobiles <i
+              class="icon ion-ios-arrow-forward icon-mobile"></i></a>
+        </li>
         <li class="nav-item nav-custom-link btn btn-demo-small" *ngIf="!isLoggedIn">
           <a class="nav-link" (click)="loginAndLogout()">Login / Sign Up<i
               class="icon ion-ios-arrow-forward icon-mobile"></i></a>
