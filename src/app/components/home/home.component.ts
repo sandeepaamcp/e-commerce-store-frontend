@@ -1,8 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
-import { environment } from 'src/environments/environment';
-import { forkJoin, Observable } from 'rxjs';
 import { MobileSearchService } from 'src/app/services/mobile-search.service';
 
 @Component({
@@ -15,6 +13,7 @@ export class HomeComponent implements OnInit {
   showFilters: boolean = false;
 
   mobileManufacturerList: any = [];
+  mobilesList: any = [];
 
   selectedManufacturer: any = null;
   manufacturerStr = "Manufacturer";
@@ -27,6 +26,8 @@ export class HomeComponent implements OnInit {
 
   price: any = null;
 
+  keyword: any = null;
+
   constructor(private _activatedRoute: ActivatedRoute, private _router: Router,
     @Inject(LOCAL_STORAGE) private storage: StorageService,
     private mobileSearchService: MobileSearchService) { }
@@ -37,6 +38,12 @@ export class HomeComponent implements OnInit {
       console.log(val);
       this.mobileManufacturerList = val;
     });
+
+    this.mobileSearchService.getInitialMobilesList().then(list => {
+      this.mobilesList = list;
+
+      console.log(this.mobilesList);
+    })
   }
 
   toggleFilterSearch() {
@@ -61,14 +68,28 @@ export class HomeComponent implements OnInit {
   }
 
   getMobilesSearchList() {
-    if (this.selectedManufacturer != null && this.price != null && this.selectedVariation != null) {
-      this.isFilledAllFields = true;
-      this.mobileSearchService
-        .getSearchListFromFilters(this.selectedManufacturer, this.price, this.selectedVariation)
-        .then(mobilesList => {
-          console.log(mobilesList);
-        });
-    }
 
+    if (this.showFilters) {
+      if (this.selectedManufacturer != null && this.price != null && this.selectedVariation != null) {
+        this.isFilledAllFields = true;
+        this.mobileSearchService
+          .getSearchListFromFilters(this.selectedManufacturer, this.price, this.selectedVariation)
+          .then(mobilesList => {
+            console.log(mobilesList);
+            this.mobilesList = mobilesList;
+          });
+      }
+    }
+    else {
+      if (this.keyword != null) {
+        this.mobileSearchService
+          .searchByKeyword(this.keyword)
+          .then(mobilesList => {
+            console.log(mobilesList);
+            this.mobilesList = mobilesList;
+          });
+      }
+
+    }
   }
 }

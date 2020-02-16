@@ -41,6 +41,7 @@ import { SetCarersComponent } from './components/set-carers/set-carers.component
 import { MedicalHistoryComponent } from './components/medical-history/medical-history.component';
 import { HomeComponent } from './components/home/home.component';
 import { MobileSpecComponent } from './components/mobile-spec/mobile-spec.component';
+import { FavMobilesComponent } from './components/fav-mobiles/fav-mobiles.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +71,8 @@ import { MobileSpecComponent } from './components/mobile-spec/mobile-spec.compon
     SetCarersComponent,
     MedicalHistoryComponent,
     HomeComponent,
-    MobileSpecComponent
+    MobileSpecComponent,
+    FavMobilesComponent
   ],
   imports: [
     BrowserModule,

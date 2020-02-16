@@ -25,6 +25,7 @@ import { AuthGuard } from './auth/AuthGuard';
 import{SetCarersComponent} from './components/set-carers/set-carers.component';
 import { MedicalHistoryComponent } from './components/medical-history/medical-history.component';
 import { HomeComponent } from './components/home/home.component';
+import { FavMobilesComponent} from './components/fav-mobiles/fav-mobiles.component';
 
 
 const routes: Routes = [
@@ -51,6 +52,7 @@ const routes: Routes = [
   { path: 'locate', component:LocateComponent,  canActivate: [AuthGuard]},
   { path: 'set-carers', component: SetCarersComponent,  canActivate: [AuthGuard]},
   { path: 'medical-history', component: MedicalHistoryComponent,  canActivate: [AuthGuard]},
+  { path: 'fav-mobiles', component: FavMobilesComponent,  canActivate: [AuthGuard]},
 ];
 
 

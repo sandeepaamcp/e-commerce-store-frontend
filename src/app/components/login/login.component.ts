@@ -45,11 +45,19 @@ export class LoginComponent implements OnInit {
     this.storage.clear();
     this.user.email = this.profileForm.value.email;
     this.user.password = this.profileForm.value.password;
-    this.userBackendService.authenticate(this.user).then((res) => {
+    // this.userBackendService.authenticate(this.user).then((res) => {
+    //   this.loginStatus.changeMessage(true);
+    //   console.log(res);
+    //   this.storage.set(environment.USER, res);
+    //   this._router.navigate(['/mode']);
+    // }
+
+    //TODO: SKIPPED AUTH
+    this.userBackendService.getUserInfoByEmail(this.user.email).then((res) => {
       this.loginStatus.changeMessage(true);
       console.log(res);
       this.storage.set(environment.USER, res);
-      this._router.navigate(['/mode']);
+      this._router.navigate(['/fav-mobiles']);
     }
     ).catch((error: any) => {
       console.log(error);

@@ -23,23 +23,7 @@ export class UserBackendConnectionService {
         console.log(res);
         if (res.jwt != null) {
           this.storage.set(environment.AUTH_KEY, res.jwt);
-          return this.getUserInfoByEmail(this.userData.email).toPromise();
-          // this._router.navigate(['/patientdata']);
-          // this.userBackendService.getUserInfoByEmail().subscribe((res: any) => {
-          //     console.log(res);
-          // });
-          // var values$ = forkJoin(
-          //   this.userBackendService.getUserInfoByEmail(),
-          //   // getSingleValueObservable(),
-          //   // getDelayedValueObservable()
-          //   // getMultiValueObservable(), forkJoin on works for observables that complete
-          // ).pipe(
-          //   map(([first]) => {
-          //     console.log(first);
-          //     // forkJoin returns an array of values, here we map those values to an object
-          //     return { first };
-          //   })
-          // );
+          return this.getUserInfoByEmail(this.userData.email);
         }
         else {
           throw new HttpErrorResponse({
@@ -72,7 +56,8 @@ export class UserBackendConnectionService {
   }
 
   public register(userDetails) {
-    return this.http.post(`${this.apiURL}/users/signup`, userDetails).pipe(
+    console.log(userDetails);
+    return this.http.post(`${this.apiURL}/user/signup`, userDetails).pipe(
       map((res: any) => {
         console.log(res);
       })
@@ -94,14 +79,7 @@ export class UserBackendConnectionService {
 
 
   public getUserInfoByEmail(email: string) {
-    // let headers: HttpHeaders = new HttpHeaders();
-    // headers = headers.append('Content-Type', 'application/json');
-    // headers = headers.append('Authorization', 'Bearer '+this.getUserToken());
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   'Authorization': this.getUserToken()
-    // })
-    return this.http.get(`${this.apiURL}/users/get-by-email?email=${email}`);
+    return this.http.get(`${this.apiURL}/user/get_by_email?email=${email}`).toPromise();
   }
 
   public isUserLoggedIn() {
