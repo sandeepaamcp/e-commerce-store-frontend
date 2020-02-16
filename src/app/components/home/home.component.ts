@@ -116,4 +116,8 @@ export class HomeComponent implements OnInit {
       })
     }
   }
+
+  private goToMobileSpecs(mobile){
+    this._router.navigate(['/mobile-specs'], { state: { mobileDetails: mobile }});
+  }
 }

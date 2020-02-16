@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { AuthGuard } from './auth/AuthGuard';
 import { HomeComponent } from './components/home/home.component';
 import { FavMobilesComponent} from './components/fav-mobiles/fav-mobiles.component';
+import { MobileSpecComponent } from './components/mobile-spec/mobile-spec.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'header', component:HeaderComponent},
   { path: 'fav-mobiles', component: FavMobilesComponent,  canActivate: [AuthGuard]},
+  { path: 'mobile-specs', component: MobileSpecComponent},
 ];
 
 

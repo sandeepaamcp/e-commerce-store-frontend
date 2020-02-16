@@ -41,4 +41,8 @@ export class FavMobilesComponent implements OnInit {
       this.ngOnInit();
     });
   }
+
+  private goToMobileSpecs(mobile){
+    this._router.navigate(['/mobile-specs'], { state: { mobileDetails: mobile }});
+  }
 }
